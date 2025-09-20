@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Outlet Automóveis — Comprar carros</title>
+  <meta name="description" content="Outlet Automóveis: encontre carros novos e seminovos com filtros por preço, ano, quilometragem e mais.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a href="#" class="brand" aria-label="Outlet Automóveis: ir para a página inicial">
+        <img src="fotos/WhatsApp Image 2025-09-15 at 14.43.38.jpeg" alt="Outlet Automóveis" class="brand__logo-img">
+        <span class="brand__name">Outlet Automóveis</span>
+      </a>
+      <nav class="topnav" aria-label="Navegação principal">
+        <a href="#comprar" class="topnav__link is-active">Comprar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 class="hero__title">Comprar carros</h1>
+      <p class="hero__subtitle">Outlet Automóveis — Barra Mansa, RJ.</p>
+      <form id="searchForm" class="search" role="search" aria-label="Busca de carros">
+        <input type="search" id="q" name="q" class="search__input" placeholder="Busque por marca, modelo..." autocomplete="off">
+        <button type="submit" class="button">Buscar</button>
+      </form>
+    </section>
+
+    <section class="filters" aria-labelledby="filtrosTitulo">
+      <h2 id="filtrosTitulo" class="sr-only">Filtros</h2>
+      <div class="filters__row">
+        <label class="field">
+          <span class="field__label">Localização</span>
+          <select id="filtroLocal" class="field__control" disabled>
+            <option selected>Barra Mansa, RJ</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field__label">Preço máx.</span>
+          <select id="filtroPreco" class="field__control">
+            <option value="">Sem limite</option>
+            <option value="60000">R$ 60.000</option>
+            <option value="80000">R$ 80.000</option>
+            <option value="100000">R$ 100.000</option>
+            <option value="150000">R$ 150.000</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field__label">Ano mín.</span>
+          <select id="filtroAno" class="field__control">
+            <option value="">Qualquer</option>
+            <option>2000</option>
+            <option>2001</option>
+            <option>2002</option>
+            <option>2003</option>
+            <option>2004</option>
+            <option>2005</option>
+            <option>2006</option>
+            <option>2007</option>
+            <option>2008</option>
+            <option>2009</option>
+            <option>2010</option>
+            <option>2011</option>
+            <option>2012</option>
+            <option>2013</option>
+            <option>2014</option>
+            <option>2015</option>
+            <option>2016</option>
+            <option>2017</option>
+            <option>2018</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+            <option>2023</option>
+            <option>2024</option>
+            <option>2025</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field__label">Ordenar</span>
+          <select id="ordenarPor" class="field__control">
+            <option value="relevancia">Mais relevantes</option>
+            <option value="menor_preco">Menor preço</option>
+            <option value="maior_preco">Maior preço</option>
+            <option value="menor_km">Menor km</option>
+            <option value="mais_novo">Ano mais novo</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="results" aria-labelledby="resultadosTitulo">
+      <div class="results__head">
+        <h2 id="resultadosTitulo">Ofertas</h2>
+        <div class="results__actions">
+          <div id="totalResultados" aria-live="polite" class="results__count">0 ofertas</div>
+          <button class="button button--add" onclick="openAddVehicleModal()">+ Adicionar Veículo</button>
+        </div>
+      </div>
+      <div id="grid" class="grid">
+        <!-- Cards gerados dinamicamente por script.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal para visualizar fotos -->
+  <div id="photosModal" class="photos-modal" aria-hidden="true" role="dialog" aria-label="Fotos do veículo">
+    <div class="modal-backdrop" onclick="closePhotosModal()"></div>
+    <div class="modal-content modal-content--photos">
+      <div class="modal-header">
+        <h3 id="photosModalTitle">Fotos do Veículo</h3>
+        <button class="modal-close" onclick="closePhotosModal()">&times;</button>
+      </div>
+      <div class="photos-gallery">
+        <div class="photos-main">
+          <button class="photo-nav photo-nav--prev" onclick="previousPhoto()">&lsaquo;</button>
+          <img id="mainPhoto" src="" alt="Foto do veículo" class="main-photo">
+          <button class="photo-nav photo-nav--next" onclick="nextPhoto()">&rsaquo;</button>
+        </div>
+        <div class="photos-thumbnails" id="photosThumbnails">
+          <!-- Miniaturas serão geradas dinamicamente -->
+        </div>
+        <div class="photo-counter">
+          <span id="photoCounter">1 / 1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Simulação -->
+  <div id="simulationModal" class="modal" aria-hidden="true" role="dialog" aria-label="Simulação de financiamento">
+    <div class="modal-backdrop" onclick="closeSimulationModal()"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Simulação de Financiamento</h3>
+        <button class="modal-close" onclick="closeSimulationModal()">&times;</button>
+      </div>
+      <form class="simulation-form" onsubmit="submitSimulation(event)">
+        <div class="form-group">
+          <label for="simulationCpf">CPF *</label>
+          <input type="text" id="simulationCpf" name="cpf" placeholder="000.000.000-00" required>
+        </div>
+        <div class="form-group">
+          <label for="simulationBirthDate">Data de Nascimento *</label>
+          <input type="date" id="simulationBirthDate" name="birthDate" required>
+        </div>
+        <div class="form-group">
+          <label>Possui CNH? *</label>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="hasCnh" value="sim" required>
+              <span>Sim</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="hasCnh" value="nao" required>
+              <span>Não</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn-cancel" onclick="closeSimulationModal()">Cancelar</button>
+          <button type="submit" class="btn-submit">Enviar para Simulação</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal para adicionar veículo -->
+  <div id="addVehicleModal" class="add-vehicle-modal" aria-hidden="true" role="dialog" aria-label="Adicionar veículo">
+    <div class="modal-backdrop" onclick="closeAddVehicleModal()"></div>
+    <div class="modal-content modal-content--large">
+      <div class="modal-header">
+        <h3>Adicionar Novo Veículo</h3>
+        <button class="modal-close" onclick="closeAddVehicleModal()">&times;</button>
+      </div>
+      <form id="addVehicleForm" class="add-vehicle-form" onsubmit="submitAddVehicle(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="vehicleTitle">Título do Veículo *</label>
+            <input type="text" id="vehicleTitle" name="titulo" required placeholder="Ex: Honda Civic LX 2.0 Flex">
+          </div>
+          <div class="form-group">
+            <label for="vehiclePrice">Preço (R$) *</label>
+            <input type="number" id="vehiclePrice" name="preco" required placeholder="Ex: 45000" min="0">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="vehicleYear">Ano/Modelo *</label>
+            <input type="text" id="vehicleYear" name="anoModelo" required placeholder="Ex: 2020/2020">
+          </div>
+          <div class="form-group">
+            <label for="vehicleKm">Quilometragem</label>
+            <input type="number" id="vehicleKm" name="km" placeholder="Ex: 50000" min="0" value="0">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="vehicleLocation">Localização *</label>
+            <input type="text" id="vehicleLocation" name="local" required placeholder="Ex: Barra Mansa, RJ" value="Barra Mansa, RJ">
+          </div>
+          <div class="form-group">
+            <label for="vehicleStore">Loja *</label>
+            <input type="text" id="vehicleStore" name="loja" required placeholder="Ex: Outlet Automóveis" value="Outlet Automóveis">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="vehicleImages">Imagens do Veículo</label>
+          <input type="file" id="vehicleImages" name="imagens" multiple accept="image/*">
+          <div class="file-info">Selecione uma ou mais imagens do veículo (opcional)</div>
+          <div id="imagePreview" class="image-preview"></div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" onclick="closeAddVehicleModal()" class="btn-cancel">Cancelar</button>
+          <button type="submit" class="btn-submit">Adicionar Veículo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal de Privacidade -->
+  <div id="privacyModal" class="modal" aria-hidden="true" role="dialog" aria-label="Política de Privacidade">
+    <div class="modal-backdrop" onclick="closePrivacyModal()"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🔒 Política de Privacidade</h3>
+        <button class="modal-close" onclick="closePrivacyModal()">&times;</button>
+      </div>
+      <div class="privacy-content">
+        <div class="privacy-section">
+          <h4>📋 Como coletamos informações</h4>
+          <p>Coletamos apenas as informações necessárias para:</p>
+          <ul>
+            <li>Processar suas consultas sobre veículos</li>
+            <li>Enviar informações via WhatsApp quando solicitado</li>
+            <li>Melhorar nossos serviços</li>
+          </ul>
+        </div>
+        
+        <div class="privacy-section">
+          <h4>🛡️ Proteção dos seus dados</h4>
+          <p>Seus dados são protegidos e não são compartilhados com terceiros sem seu consentimento.</p>
+        </div>
+        
+        <div class="privacy-section">
+          <h4>📱 WhatsApp</h4>
+          <p>Ao usar nossos botões do WhatsApp, você será direcionado para nossa conversa oficial. Respeitamos sua privacidade e não enviamos mensagens não solicitadas.</p>
+        </div>
+        
+        <div class="privacy-section">
+          <h4>🍪 Cookies</h4>
+          <p>Utilizamos cookies apenas para melhorar sua experiência de navegação e salvar suas preferências de filtros.</p>
+        </div>
+        
+        <div class="privacy-section">
+          <h4>📞 Contato sobre Privacidade</h4>
+          <p>Se tiver dúvidas sobre como tratamos seus dados, entre em contato conosco:</p>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" onclick="closePrivacyModal()">Fechar</button>
+        <button type="button" class="btn-submit" onclick="openWhatsAppPrivacy()">💬 Falar sobre Privacidade</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <strong>Outlet Automóveis</strong>
+        <div class="footer__sub">Barra Mansa, RJ — Excelentes ofertas de carros novos e seminovos.</div>
+        <div class="footer__address">📍 Av. Argemiro de Paula Coutinho, 310 - Centro, Barra Mansa - RJ</div>
+      </div>
+      <nav class="footnav" aria-label="Rodapé">
+        <a href="#" onclick="openWhatsAppHelp()">Ajuda</a>
+        <a href="#" onclick="openPrivacyModal()">Privacidade</a>
+        <a href="https://www.google.com/maps/search/Av.+Argemiro+de+Paula+Coutinho,+310+-+Centro,+Barra+Mansa+-+RJ" target="_blank" rel="noopener">Mapa do site</a>
+        <a href="#" onclick="openWhatsAppGeneral()" class="whatsapp-link">💬 WhatsApp</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
