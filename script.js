@@ -263,8 +263,14 @@ Gostaria de mais informações sobre este veículo.`;
   // Cria o link do WhatsApp
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
   
-  // Abre o WhatsApp
-  window.open(whatsappUrl, '_blank');
+  // Abre o WhatsApp (melhorado para mobile)
+  try {
+    // Tenta abrir diretamente no app do WhatsApp
+    window.location.href = whatsappUrl;
+  } catch (error) {
+    // Fallback para window.open
+    window.open(whatsappUrl, '_blank');
+  }
 }
 
 function openWhatsAppGeneral() {
@@ -280,8 +286,14 @@ function openWhatsAppGeneral() {
   // Cria o link do WhatsApp
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
   
-  // Abre o WhatsApp
-  window.open(whatsappUrl, '_blank');
+  // Abre o WhatsApp (melhorado para mobile)
+  try {
+    // Tenta abrir diretamente no app do WhatsApp
+    window.location.href = whatsappUrl;
+  } catch (error) {
+    // Fallback para window.open
+    window.open(whatsappUrl, '_blank');
+  }
 }
 
 function openWhatsAppHelp() {
@@ -297,8 +309,14 @@ function openWhatsAppHelp() {
   // Cria o link do WhatsApp
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
   
-  // Abre o WhatsApp
-  window.open(whatsappUrl, '_blank');
+  // Abre o WhatsApp (melhorado para mobile)
+  try {
+    // Tenta abrir diretamente no app do WhatsApp
+    window.location.href = whatsappUrl;
+  } catch (error) {
+    // Fallback para window.open
+    window.open(whatsappUrl, '_blank');
+  }
 }
 
 function openPrivacyModal() {
@@ -327,8 +345,14 @@ function openWhatsAppPrivacy() {
   // Fecha o modal
   closePrivacyModal();
   
-  // Abre o WhatsApp
-  window.open(whatsappUrl, '_blank');
+  // Abre o WhatsApp (melhorado para mobile)
+  try {
+    // Tenta abrir diretamente no app do WhatsApp
+    window.location.href = whatsappUrl;
+  } catch (error) {
+    // Fallback para window.open
+    window.open(whatsappUrl, '_blank');
+  }
 }
 
 function extractAno(anoModelo) {
@@ -697,8 +721,14 @@ Por favor, entre em contato para realizar a simulação de financiamento.`;
   // Fechar modal
   closeSimulationModal();
   
-  // Abrir WhatsApp
-  window.open(whatsappUrl, '_blank');
+  // Abrir WhatsApp (melhorado para mobile)
+  try {
+    // Tenta abrir diretamente no app do WhatsApp
+    window.location.href = whatsappUrl;
+  } catch (error) {
+    // Fallback para window.open
+    window.open(whatsappUrl, '_blank');
+  }
   
   // Mostrar confirmação
   alert('Dados enviados com sucesso! Você será redirecionado para o WhatsApp.');
