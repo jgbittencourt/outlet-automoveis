@@ -31,7 +31,7 @@ const whatsappConfig = {
     description: "Vendas e atendimento"
   },
   principal: {
-    number: "5524981072933", // (24) 98107-2933 - Junior (WhatsApp Principal)
+    number: "5524992195829", // (24) 99219-5829 - João (WhatsApp Principal)
     name: "WhatsApp Principal",
     description: "Consultas gerais e informações"
   },
@@ -41,7 +41,7 @@ const whatsappConfig = {
     description: "Simulações e financiamento"
   },
   suporte: {
-    number: "5524981072933", // (24) 98107-2933 - Junior
+    number: "5524992195829", // (24) 99219-5829 - João
     name: "WhatsApp Suporte",
     description: "Ajuda e suporte técnico"
   }
@@ -767,8 +767,10 @@ function submitSimulation(event) {
     return;
   }
   
-  // Enviar para WhatsApp de financiamento
-  const whatsappNumber = whatsappConfig.financiamento.number;
+  // Obtém o próximo vendedor para simulação de financiamento
+  const vendorKey = leadDistribution.getNextVendor();
+  const vendor = whatsappConfig[vendorKey];
+  const whatsappNumber = vendor.number;
   const message = `🚗 *SOLICITAÇÃO DE SIMULAÇÃO DE FINANCIAMENTO*
 
 📋 *Dados do Cliente:*
@@ -792,6 +794,9 @@ _Esta simulação foi solicitada através do site da Outlet Automóveis._`;
   
   // Fechar modal
   closeSimulationModal();
+  
+  // Log para controle (opcional - pode remover em produção)
+  console.log(`Simulação de financiamento direcionada para: ${vendor.name} (${vendorKey})`);
   
   // Abrir WhatsApp (melhorado para mobile)
   try {
