@@ -1,4 +1,81 @@
 
+// ========================================
+// CONFIGURAÇÃO DOS NÚMEROS DE WHATSAPP
+// ========================================
+// 
+// Este sistema permite distribuir leads de forma justa entre 2 vendedores
+// 
+// COMO FUNCIONA:
+// - João (Vendedor 1): Recebe leads alternados (1º, 3º, 5º...)
+// - Junior (Vendedor 2): Recebe leads alternados (2º, 4º, 6º...)
+// 
+// PARA ALTERAR O MÉTODO DE DISTRIBUIÇÃO:
+// - Alternado: setLeadDistributionMethod('alternado') - Distribui 1 por 1
+// - Aleatório: setLeadDistributionMethod('aleatorio') - Distribui aleatoriamente
+// 
+// PARA TESTAR A DISTRIBUIÇÃO:
+// - testDistribution(20) - Testa 20 leads e mostra quantos cada vendedor recebeu
+// 
+// ========================================
+
+// Configuração dos números de WhatsApp
+const whatsappConfig = {
+  vendedor1: {
+    number: "5524992195829", // (24) 99219-5829 - João
+    name: "João",
+    description: "Vendas e atendimento"
+  },
+  vendedor2: {
+    number: "5524981072933", // (24) 98107-2933 - Junior
+    name: "Junior", 
+    description: "Vendas e atendimento"
+  },
+  principal: {
+    number: "5524981072933", // (24) 98107-2933 - Junior (WhatsApp Principal)
+    name: "WhatsApp Principal",
+    description: "Consultas gerais e informações"
+  },
+  financiamento: {
+    number: "5524981072933", // (24) 98107-2933 - Junior
+    name: "WhatsApp Financiamento", 
+    description: "Simulações e financiamento"
+  },
+  suporte: {
+    number: "5524981072933", // (24) 98107-2933 - Junior
+    name: "WhatsApp Suporte",
+    description: "Ajuda e suporte técnico"
+  }
+};
+
+// Sistema de distribuição de leads entre vendedores
+const leadDistribution = {
+  // Contador para rotação automática
+  counter: 0,
+  
+  // Método de distribuição: 'alternado', 'aleatorio', 'manual'
+  method: 'alternado', // Você pode mudar para 'aleatorio' se preferir
+  
+  // Função para obter o próximo vendedor
+  getNextVendor() {
+    if (this.method === 'alternado') {
+      this.counter++;
+      return this.counter % 2 === 1 ? 'vendedor1' : 'vendedor2';
+    } else if (this.method === 'aleatorio') {
+      return Math.random() < 0.5 ? 'vendedor1' : 'vendedor2';
+    }
+    // Fallback para vendedor1
+    return 'vendedor1';
+  },
+  
+  // Função para definir método de distribuição
+  setMethod(newMethod) {
+    if (['alternado', 'aleatorio', 'manual'].includes(newMethod)) {
+      this.method = newMethod;
+      console.log(`Método de distribuição alterado para: ${newMethod}`);
+    }
+  }
+};
+
 const inventory = [
   {
     id: 5,
@@ -277,16 +354,72 @@ function formatKm(value) {
   return `${value.toLocaleString("pt-BR")} Km`;
 }
 
+// Função utilitária para abrir WhatsApp com configuração específica
+function openWhatsAppWithConfig(configKey, message) {
+  const config = whatsappConfig[configKey];
+  if (!config) {
+    console.error(`Configuração de WhatsApp não encontrada: ${configKey}`);
+    return;
+  }
+  
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/${config.number}?text=${encodedMessage}`;
+  
+  try {
+    window.location.href = whatsappUrl;
+  } catch (error) {
+    window.open(whatsappUrl, '_blank');
+  }
+}
+
+// Função para obter informações de um número de WhatsApp
+function getWhatsAppInfo(configKey) {
+  return whatsappConfig[configKey] || null;
+}
+
+// Funções para gerenciar a distribuição de leads
+function setLeadDistributionMethod(method) {
+  leadDistribution.setMethod(method);
+}
+
+function getCurrentDistributionMethod() {
+  return leadDistribution.method;
+}
+
+function getDistributionStats() {
+  return {
+    method: leadDistribution.method,
+    counter: leadDistribution.counter,
+    vendedor1: whatsappConfig.vendedor1.name,
+    vendedor2: whatsappConfig.vendedor2.name
+  };
+}
+
+// Função para testar a distribuição (opcional - para debug)
+function testDistribution(count = 10) {
+  console.log(`Testando distribuição de ${count} leads:`);
+  const results = { vendedor1: 0, vendedor2: 0 };
+  
+  for (let i = 0; i < count; i++) {
+    const vendor = leadDistribution.getNextVendor();
+    results[vendor]++;
+  }
+  
+  console.log('Resultados:', results);
+  return results;
+}
+
 function openWhatsApp(vehicleId) {
   // Encontra o veículo pelo ID
   const vehicle = inventory.find(item => item.id === vehicleId);
   if (!vehicle) return;
   
-  // Número do WhatsApp
-  const whatsappNumber = "5524992195829"; // (24) 99219-5829
+  // Obtém o próximo vendedor usando o sistema de distribuição
+  const vendorKey = leadDistribution.getNextVendor();
+  const vendor = whatsappConfig[vendorKey];
   
   // Mensagem personalizada com dados do veículo
-  const message = `Olá! Tenho interesse no veículo:
+  const message = `Olá! Vim através do site da Outlet Automóveis e tenho interesse no veículo:
 
 🚗 *${vehicle.titulo}*
 💰 Preço: ${formatPrice(vehicle.preco)}
@@ -297,25 +430,16 @@ function openWhatsApp(vehicleId) {
 
 Gostaria de mais informações sobre este veículo.`;
 
-  // Codifica a mensagem para URL
-  const encodedMessage = encodeURIComponent(message);
+  // Usa a função utilitária para abrir o WhatsApp
+  openWhatsAppWithConfig(vendorKey, message);
   
-  // Cria o link do WhatsApp
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-  
-  // Abre o WhatsApp (melhorado para mobile)
-  try {
-    // Tenta abrir diretamente no app do WhatsApp
-    window.location.href = whatsappUrl;
-  } catch (error) {
-    // Fallback para window.open
-    window.open(whatsappUrl, '_blank');
-  }
+  // Log para controle (opcional - pode remover em produção)
+  console.log(`Lead direcionado para: ${vendor.name} (${vendorKey})`);
 }
 
 function openWhatsAppGeneral() {
-  // Número do WhatsApp
-  const whatsappNumber = "5524992195829"; // (24) 99219-5829
+  // Usa o WhatsApp principal para consultas gerais
+  const whatsappNumber = whatsappConfig.principal.number;
   
   // Mensagem geral
   const message = `Olá! Vim através do site da Outlet Automóveis e gostaria de mais informações sobre os veículos disponíveis.`;
@@ -337,11 +461,11 @@ function openWhatsAppGeneral() {
 }
 
 function openWhatsAppHelp() {
-  // Número do WhatsApp
-  const whatsappNumber = "5524992195829"; // (24) 99219-5829
+  // Usa o WhatsApp de suporte para ajuda
+  const whatsappNumber = whatsappConfig.suporte.number;
   
   // Mensagem de ajuda
-  const message = `Olá! Preciso de ajuda com o site da Outlet Automóveis. Tenho algumas dúvidas e gostaria de esclarecimentos.`;
+  const message = `Olá! Vim através do site da Outlet Automóveis e preciso de ajuda. Tenho algumas dúvidas e gostaria de esclarecimentos.`;
   
   // Codifica a mensagem para URL
   const encodedMessage = encodeURIComponent(message);
@@ -370,11 +494,11 @@ function closePrivacyModal() {
 }
 
 function openWhatsAppPrivacy() {
-  // Número do WhatsApp
-  const whatsappNumber = "5524992195829"; // (24) 99219-5829
+  // Usa o WhatsApp de suporte para questões de privacidade
+  const whatsappNumber = whatsappConfig.suporte.number;
   
   // Mensagem sobre privacidade
-  const message = `Olá! Tenho dúvidas sobre a política de privacidade da Outlet Automóveis. Gostaria de esclarecimentos sobre como meus dados são tratados.`;
+  const message = `Olá! Vim através do site da Outlet Automóveis e tenho dúvidas sobre a política de privacidade. Gostaria de esclarecimentos sobre como meus dados são tratados.`;
   
   // Codifica a mensagem para URL
   const encodedMessage = encodeURIComponent(message);
@@ -643,8 +767,8 @@ function submitSimulation(event) {
     return;
   }
   
-  // Enviar para WhatsApp
-  const whatsappNumber = "5524992195829";
+  // Enviar para WhatsApp de financiamento
+  const whatsappNumber = whatsappConfig.financiamento.number;
   const message = `🚗 *SOLICITAÇÃO DE SIMULAÇÃO DE FINANCIAMENTO*
 
 📋 *Dados do Cliente:*
@@ -659,7 +783,9 @@ function submitSimulation(event) {
 • Quilometragem: ${formatKm(vehicle.km)}
 • Local: ${vehicle.local}
 
-Por favor, entre em contato para realizar a simulação de financiamento.`;
+Por favor, entre em contato para realizar a simulação de financiamento.
+
+_Esta simulação foi solicitada através do site da Outlet Automóveis._`;
   
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
