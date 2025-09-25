@@ -127,15 +127,6 @@ body {
 .results__head { display: flex; justify-content: space-between; align-items: center; }
 .results__actions { display: flex; align-items: center; gap: 16px; }
 .results__count { color: var(--muted); }
-.button--add {
-  background: var(--success);
-  font-size: 14px;
-  padding: 8px 16px;
-  height: auto;
-}
-.button--add:hover {
-  background: #15803d;
-}
 
 .grid {
   margin-top: 16px;
@@ -954,74 +945,6 @@ body {
   border: 1px solid rgba(37, 99, 235, 0.3);
 }
   
-/* Modal para Adicionar Veículo */
-.add-vehicle-modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-}
-
-.add-vehicle-modal[aria-hidden="false"] {
-  display: flex;
-}
-
-.modal-content--large {
-  width: min(95vw, 700px);
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.add-vehicle-form {
-  display: grid;
-  gap: 20px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.file-info {
-  color: var(--muted);
-  font-size: 12px;
-  margin-top: 4px;
-}
-
-.image-preview {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.image-preview img {
-  width: 100%;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-}
-
-.form-group input[type="file"] {
-  padding: 8px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  border-radius: 8px;
-  background: var(--bg);
-  color: var(--text);
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.form-group input[type="file"]:focus {
-  outline: none;
-  border-color: var(--brand);
-}
 
 @media (max-width: 640px) {
   .form-row {
