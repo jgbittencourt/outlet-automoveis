@@ -1,5 +1,7 @@
 # 🚗 Outlet Automóveis - Site de Veículos Usados
 
+**🌐 Site Oficial**: [outletautomoveisbm.com.br](https://outletautomoveisbm.com.br)
+
 Site da Outlet Automóveis, uma loja de veículos usados localizada em Barra Mansa, RJ. O site permite aos clientes visualizar o catálogo de veículos disponíveis, filtrar por preço, ano e localização, e entrar em contato via WhatsApp.
 
 ## ✨ Funcionalidades
@@ -52,12 +54,17 @@ outlet-automoveis/
 
 ## 🚀 Como Usar
 
-1. Abra o arquivo `index.html` em um navegador web
+### Online (Produção)
+1. Acesse [outletautomoveisbm.com.br](https://outletautomoveisbm.com.br)
 2. Navegue pelos veículos disponíveis
 3. Use os filtros para encontrar veículos específicos
 4. Clique em "WhatsApp" para entrar em contato
 5. Use "📸 Fotos" para ver a galeria de imagens
 6. Use "Simular" para solicitar simulação de financiamento
+
+### Local (Desenvolvimento)
+1. Abra o arquivo `index.html` em um navegador web
+2. Siga os mesmos passos acima
 
 ## 📞 Contato
 

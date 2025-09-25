@@ -11,14 +11,18 @@ const inventory = [
     imagem: "fotos/WhatsApp Image 2025-09-15 at 17.25.28.jpeg",
     imagens: [
       "fotos/WhatsApp Image 2025-09-15 at 17.25.28.jpeg",
-      "fotos/onix(2).jpeg",
-      "fotos/onix(3).jpeg",
-      "fotos/onix(4).jpeg",
-      "fotos/onix(5).jpeg",
-      "fotos/onix(6).jpeg",
-      "fotos/onix(7).jpeg",
-      "fotos/onix(8).jpeg",
-      "fotos/onix(9).jpeg"
+      "fotos/onix 2.2.jpeg",
+      "fotos/onix 2.5.jpeg",
+      "fotos/onix 2.6.jpeg",
+      "fotos/onix 2.7.jpeg",
+      "fotos/onix 2.8.jpeg",
+      "fotos/onix 2.9.jpeg",
+      "fotos/onix 20.jpeg",
+      "fotos/onix2.0.jpeg",
+      "fotos/onix2.1.jpeg",
+      "fotos/onix2.3.jpeg",
+      "fotos/onix2.4.jpeg",
+      "fotos/onix3.0.jpeg"
     ]
   },
   {
@@ -225,6 +229,42 @@ const inventory = [
       "fotos/honda crv (5).jpeg",
       "fotos/honda crv (6).jpeg",
       "fotos/honda crv (7).jpeg"
+    ]
+  },
+  {
+    id: 23,
+    titulo: "Chevrolet Onix LT 1.0 GNV",
+    preco: 44900,
+    anoModelo: "2016/2016",
+    km: 158,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/onix p(4).jpeg",
+    imagens: [
+      "fotos/onix p(4).jpeg",
+      "fotos/onix p.jpeg",
+      "fotos/dentro onix.jpeg",
+      "fotos/onix p(2).jpeg",
+      "fotos/onix p(3).jpeg",
+      "fotos/onix p(5).jpeg",
+      "fotos/onix motor.jpeg"
+    ]
+  },
+  {
+    id: 24,
+    titulo: "Fiat Palio 1.0 Flex",
+    preco: 23900,
+    anoModelo: "2008/2008",
+    km: 150,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/palio principal.jpeg",
+    imagens: [
+      "fotos/palio principal.jpeg",
+      "fotos/palio.jpeg",
+      "fotos/palio2.jpeg",
+      "fotos/palio3.jpeg",
+      "fotos/palio4.jpeg"
     ]
   },
 ];

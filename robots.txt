@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://outletautomoveisbm.com.br/sitemap.xml
+
+# Crawl-delay para evitar sobrecarga
+Crawl-delay: 1
+
+# Permitir indexação de todas as páginas
+Disallow:
+
+# Permitir acesso às imagens
+Allow: /fotos/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.html
