@@ -63,8 +63,26 @@
 
   <main class="container">
     <section class="hero">
-      <h1 class="hero__title">Comprar carros</h1>
-      <p class="hero__subtitle">Outlet Automóveis — Barra Mansa, RJ.</p>
+      <h1 class="hero__title">Encontre o Carro dos Seus Sonhos</h1>
+      <p class="hero__subtitle">Outlet Automóveis — Barra Mansa, RJ. As melhores ofertas em carros usados e seminovos.</p>
+      <div class="hero__slogan">
+        <span class="slogan-text">"Não vendemos carros, realizamos sonhos"</span>
+      </div>
+      
+      <div class="trust-indicators">
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Financiamento Facilitado</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Garantia de Qualidade</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          <span>Atendimento Personalizado</span>
+        </div>
+      </div>
       <form id="searchForm" class="search" role="search" aria-label="Busca de carros">
         <input type="search" id="q" name="q" class="search__input" placeholder="Busque por marca, modelo..." autocomplete="off">
         <button type="submit" class="button">Buscar</button>
@@ -137,7 +155,7 @@
 
     <section class="results" aria-labelledby="resultadosTitulo">
       <div class="results__head">
-        <h2 id="resultadosTitulo">Ofertas</h2>
+        <h2 id="resultadosTitulo">🚗 Veículos Disponíveis</h2>
         <div class="results__actions">
           <div id="totalResultados" aria-live="polite" class="results__count">0 ofertas</div>
         </div>
@@ -253,6 +271,18 @@
       <div class="modal-actions">
         <button type="button" class="btn-cancel" onclick="closePrivacyModal()">Fechar</button>
         <button type="button" class="btn-submit" onclick="openWhatsAppPrivacy()">💬 Falar sobre Privacidade</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de Comparação -->
+  <div id="compareBar" class="compare-bar">
+    <div class="compare-items">
+      <span>Comparando:</span>
+      <div id="compareItemsList"></div>
+      <div class="compare-actions">
+        <button onclick="clearComparison()" class="btn-secondary" style="background: rgba(255,255,255,0.2); color: white; border-color: rgba(255,255,255,0.3);">Limpar</button>
+        <button onclick="compareVehicles()" class="button" style="background: white; color: var(--brand);">Comparar</button>
       </div>
     </div>
   </div>

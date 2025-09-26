@@ -248,26 +248,6 @@ const inventory = [
     ]
   },
   {
-    id: 18,
-    titulo: "Honda CB300R",
-    preco: 10900,
-    anoModelo: "2012/2012",
-    km: 120,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/cb306.jpeg",
-    imagens: [
-      "fotos/cb306.jpeg",
-      "fotos/cb300.jpeg",
-      "fotos/cb301.jpeg",
-      "fotos/cb302.jpeg",
-      "fotos/cb303.jpeg",
-      "fotos/cb304.jpeg",
-      "fotos/cb305.jpeg",
-      "fotos/cb307.jpeg"
-    ]
-  },
-  {
     id: 20,
     titulo: "Volkswagen Paraty City 1.6 Flex",
     preco: 22900,
@@ -409,6 +389,145 @@ function testDistribution(count = 10) {
   return results;
 }
 
+
+// Sistema de Comparação
+let comparisonList = [];
+
+function toggleComparison(vehicleId) {
+  const vehicle = inventory.find(item => item.id === vehicleId);
+  if (!vehicle) return;
+  
+  const index = comparisonList.findIndex(item => item.id === vehicleId);
+  if (index > -1) {
+    comparisonList.splice(index, 1);
+    showNotification('Removido da comparação', 'warning');
+  } else {
+    if (comparisonList.length >= 3) {
+      showNotification('Máximo de 3 veículos para comparar', 'error');
+      return;
+    }
+    comparisonList.push(vehicle);
+    showNotification('Adicionado à comparação!', 'success');
+  }
+  
+  updateComparisonBar();
+  updateCompareButtons();
+}
+
+function updateComparisonBar() {
+  const compareBar = document.getElementById('compareBar');
+  const compareItemsList = document.getElementById('compareItemsList');
+  
+  if (comparisonList.length > 0) {
+    compareBar.classList.add('show');
+    compareItemsList.innerHTML = comparisonList.map(vehicle => 
+      `<span class="compare-item">${vehicle.titulo}</span>`
+    ).join('');
+  } else {
+    compareBar.classList.remove('show');
+  }
+}
+
+function updateCompareButtons() {
+  document.querySelectorAll('.compare-btn').forEach(btn => {
+    const vehicleId = parseInt(btn.dataset.vehicleId);
+    const isInComparison = comparisonList.some(item => item.id === vehicleId);
+    if (isInComparison) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
+
+function clearComparison() {
+  comparisonList = [];
+  updateComparisonBar();
+  updateCompareButtons();
+  showNotification('Comparação limpa', 'warning');
+}
+
+function compareVehicles() {
+  if (comparisonList.length < 2) {
+    showNotification('Selecione pelo menos 2 veículos para comparar', 'error');
+    return;
+  }
+  
+  // Criar modal de comparação
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.setAttribute('aria-hidden', 'false');
+  modal.innerHTML = `
+    <div class="modal-backdrop" onclick="closeCompareModal()"></div>
+    <div class="modal-content" style="max-width: 90vw; max-height: 90vh; overflow-y: auto;">
+      <div class="modal-header">
+        <h3>🔍 Comparação de Veículos</h3>
+        <button class="modal-close" onclick="closeCompareModal()">&times;</button>
+      </div>
+      <div class="comparison-table">
+        ${generateComparisonTable()}
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+}
+
+function generateComparisonTable() {
+  const features = ['titulo', 'preco', 'anoModelo', 'km', 'local'];
+  const featureNames = ['Modelo', 'Preço', 'Ano', 'Quilometragem', 'Local'];
+  
+  let table = '<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">';
+  
+  // Cabeçalho
+  table += '<thead><tr><th style="padding: 12px; border: 1px solid #e2e8f0; background: var(--brand-light);">Característica</th>';
+  comparisonList.forEach(vehicle => {
+    table += `<th style="padding: 12px; border: 1px solid #e2e8f0; background: var(--brand-light);">${vehicle.titulo}</th>`;
+  });
+  table += '</tr></thead><tbody>';
+  
+  // Linhas de características
+  features.forEach((feature, index) => {
+    table += `<tr><td style="padding: 12px; border: 1px solid #e2e8f0; font-weight: 600;">${featureNames[index]}</td>`;
+    comparisonList.forEach(vehicle => {
+      let value = vehicle[feature];
+      if (feature === 'preco') value = formatPrice(value);
+      if (feature === 'km') value = formatKm(value);
+      table += `<td style="padding: 12px; border: 1px solid #e2e8f0;">${value}</td>`;
+    });
+    table += '</tr>';
+  });
+  
+  table += '</tbody></table>';
+  return table;
+}
+
+function closeCompareModal() {
+  const modal = document.querySelector('.modal');
+  if (modal) modal.remove();
+}
+
+// Sistema de Notificações
+function showNotification(message, type = 'success') {
+  const notification = document.createElement('div');
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => notification.classList.add('show'), 100);
+  setTimeout(() => {
+    notification.classList.remove('show');
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
+// Sistema de Contadores
+function generateViewCount() {
+  return Math.floor(Math.random() * 200) + 50; // 50-250 visualizações
+}
+
+
 function openWhatsApp(vehicleId) {
   // Encontra o veículo pelo ID
   const vehicle = inventory.find(item => item.id === vehicleId);
@@ -531,13 +650,47 @@ function createCard(item) {
   el.className = "card";
   el.setAttribute("data-vehicle-id", item.id);
   
+  // Determinar badges e características especiais
+  const isSpecialOffer = item.preco < 40000;
+  const isFeatured = item.km < 120000 && item.preco < 60000;
+  const isNew = extractAno(item.anoModelo) >= 2020;
+  const isLowKm = item.km < 80000;
+  const isUrgent = item.preco < 35000;
+  
+  // Determinar qual badge mostrar (prioridade)
+  let badge = '';
+  if (isUrgent) {
+    badge = '<div class="sale-badge animate-pulse">🔥 Urgente</div>';
+  } else if (isSpecialOffer) {
+    badge = '<div class="sale-badge">💰 Oferta</div>';
+  } else if (isNew) {
+    badge = '<div class="new-badge">✨ Novo</div>';
+  } else if (isFeatured) {
+    badge = '<div class="featured-badge">⭐ Destaque</div>';
+  }
+  
+  // Texto de urgência
+  let urgencyText = '';
+  if (isUrgent) {
+    urgencyText = '<div class="urgency-text">⚡ Últimas unidades disponíveis!</div>';
+  } else if (isSpecialOffer) {
+    urgencyText = '<div class="urgency-text">⚡ Oferta por tempo limitado!</div>';
+  } else if (isLowKm) {
+    urgencyText = '<div class="urgency-text">🛣️ Baixa quilometragem!</div>';
+  }
+  
   el.innerHTML = `
     <div class="card__media">
       <img src="${item.imagem}" alt="${item.titulo}" onerror="this.src=''; this.alt='Imagem não encontrada';">
+      ${badge}
+      <button class="compare-btn" onclick="toggleComparison(${item.id})" data-vehicle-id="${item.id}">⚖️</button>
+      <div class="view-count">👁️ ${generateViewCount()}</div>
+      <div class="price-drop">💰 Oferta Especial!</div>
     </div>
     <div class="card__body">
       <h3 class="card__title">${item.titulo}</h3>
       <div class="price">${formatPrice(item.preco)}</div>
+      ${urgencyText}
       <div class="card__meta">
         <span>${item.anoModelo}</span>
         <span>•</span>
@@ -546,21 +699,38 @@ function createCard(item) {
         <span>${item.local}</span>
       </div>
       <div class="card__actions">
-        <button class="button" onclick="openWhatsApp(${item.id})">WhatsApp</button>
+        <button class="button" onclick="openWhatsApp(${item.id})">💬 WhatsApp</button>
         <button class="btn-secondary" onclick="openPhotosModal(${item.id})">📸 Fotos</button>
-        <button class="btn-secondary" onclick="openSimulationModal(${item.id})">Simular</button>
+        <button class="btn-secondary" onclick="openSimulationModal(${item.id})">💰 Simular</button>
       </div>
     </div>
   `;
-  // Remover funcionalidade de lightbox - imagens aparecem normalmente
   return el;
 }
 
 function renderList(list) {
   const grid = document.getElementById("grid");
-  grid.innerHTML = "";
-  list.forEach(item => grid.appendChild(createCard(item)));
-  document.getElementById("totalResultados").textContent = `${list.length} ofertas`;
+  
+  // Mostrar loading
+  grid.innerHTML = '<div class="loading">Carregando veículos...</div>';
+  
+  // Simular delay para mostrar o loading (opcional)
+  setTimeout(() => {
+    grid.innerHTML = "";
+    
+    // Adicionar cards com animação escalonada
+    list.forEach((item, index) => {
+      const card = createCard(item);
+      card.style.animationDelay = `${index * 0.1}s`;
+      card.classList.add('fade-in');
+      grid.appendChild(card);
+    });
+    
+    // Atualizar botões de comparação
+    updateCompareButtons();
+    
+    document.getElementById("totalResultados").textContent = `${list.length} ofertas`;
+  }, 300);
 }
 
 function applyFilters() {
