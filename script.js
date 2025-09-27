@@ -681,7 +681,7 @@ function createCard(item) {
   
   el.innerHTML = `
     <div class="card__media">
-      <img src="${item.imagem}" alt="${item.titulo}" onerror="this.src=''; this.alt='Imagem não encontrada';">
+      <img src="${item.imagem}" alt="${item.titulo}" onerror="this.src=''; this.alt='Imagem não encontrada';" onclick="openPhotosModal(${item.id})" style="cursor: pointer;">
       ${badge}
       <button class="compare-btn" onclick="toggleComparison(${item.id})" data-vehicle-id="${item.id}">⚖️</button>
       <div class="view-count">👁️ ${generateViewCount()}</div>
