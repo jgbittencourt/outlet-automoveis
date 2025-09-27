@@ -220,7 +220,7 @@ const inventory = [
     km: 102,
     local: "Barra Mansa, RJ",
     loja: "Outlet Automóveis",
-    imagem: "fotos/rangerrvoer1 (1).jpeg",
+    imagem: "fotos/rangerrvoer1 (7).jpeg",
     imagens: [
       "fotos/rangerrvoer1 (1).jpeg",
       "fotos/rangerrvoer1 (2).jpeg",
