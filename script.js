@@ -220,9 +220,19 @@ const inventory = [
     km: 102,
     local: "Barra Mansa, RJ",
     loja: "Outlet Automóveis",
-    imagem: "fotos/WhatsApp Image 2025-09-15 at 17.25.26.jpeg",
+    imagem: "fotos/rangerrvoer1 (1).jpeg",
     imagens: [
-      "fotos/WhatsApp Image 2025-09-15 at 17.25.26.jpeg"
+      "fotos/rangerrvoer1 (1).jpeg",
+      "fotos/rangerrvoer1 (2).jpeg",
+      "fotos/rangerrvoer1 (3).jpeg",
+      "fotos/rangerrvoer1 (4).jpeg",
+      "fotos/rangerrvoer1 (5).jpeg",
+      "fotos/rangerrvoer1 (6).jpeg",
+      "fotos/rangerrvoer1 (7).jpeg",
+      "fotos/rangerrvoer1 (8).jpeg",
+      "fotos/rangerrvoer1 (9).jpeg",
+      "fotos/rangerrvoer1 (10).jpeg",
+      "fotos/rangerrvoer1 (11).jpeg"
     ]
   },
   {
@@ -322,29 +332,6 @@ const inventory = [
       "fotos/palio2.jpeg",
       "fotos/palio3.jpeg",
       "fotos/palio4.jpeg"
-    ]
-  },
-  {
-    id: 25,
-    titulo: "Range Rover Evoque 2.0 Turbo AWD",
-    preco: 189900,
-    anoModelo: "2015/2016",
-    km: 85000,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/rangerrvoer1 (1).jpeg",
-    imagens: [
-      "fotos/rangerrvoer1 (1).jpeg",
-      "fotos/rangerrvoer1 (2).jpeg",
-      "fotos/rangerrvoer1 (3).jpeg",
-      "fotos/rangerrvoer1 (4).jpeg",
-      "fotos/rangerrvoer1 (5).jpeg",
-      "fotos/rangerrvoer1 (6).jpeg",
-      "fotos/rangerrvoer1 (7).jpeg",
-      "fotos/rangerrvoer1 (8).jpeg",
-      "fotos/rangerrvoer1 (9).jpeg",
-      "fotos/rangerrvoer1 (10).jpeg",
-      "fotos/rangerrvoer1 (11).jpeg"
     ]
   },
 ];
