@@ -317,23 +317,6 @@ const inventory = [
       "fotos/onix motor.jpeg"
     ]
   },
-  {
-    id: 24,
-    titulo: "Fiat Palio 1.0 Flex",
-    preco: 23900,
-    anoModelo: "2008/2008",
-    km: 150,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/palio principal.jpeg",
-    imagens: [
-      "fotos/palio principal.jpeg",
-      "fotos/palio.jpeg",
-      "fotos/palio2.jpeg",
-      "fotos/palio3.jpeg",
-      "fotos/palio4.jpeg"
-    ]
-  },
 ];
 
 function formatPrice(value) {
