@@ -203,7 +203,7 @@ body {
   padding: 0 24px;
   border-radius: 16px;
   border: 0;
-  background: linear-gradient(135deg, var(--brand) 0%, #ff6b6b 100%);
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
   color: #fff;
   font-weight: 700;
   font-size: 16px;
@@ -233,7 +233,7 @@ body {
 }
 
 .button:hover { 
-  background: linear-gradient(135deg, var(--brand-600) 0%, #e53e3e 100%);
+  background: linear-gradient(135deg, #128c7e 0%, #0f766e 100%);
   transform: translateY(-2px) scale(1.05);
   box-shadow: var(--shadow-lg);
 }

@@ -59,11 +59,16 @@ const leadDistribution = {
   getNextVendor() {
     if (this.method === 'alternado') {
       this.counter++;
-      return this.counter % 2 === 1 ? 'vendedor1' : 'vendedor2';
+      const vendor = this.counter % 2 === 1 ? 'vendedor1' : 'vendedor2';
+      console.log(`Lead #${this.counter} → ${vendor} (${whatsappConfig[vendor].name})`);
+      return vendor;
     } else if (this.method === 'aleatorio') {
-      return Math.random() < 0.5 ? 'vendedor1' : 'vendedor2';
+      const vendor = Math.random() < 0.5 ? 'vendedor1' : 'vendedor2';
+      console.log(`Lead aleatório → ${vendor} (${whatsappConfig[vendor].name})`);
+      return vendor;
     }
     // Fallback para vendedor1
+    console.log(`Lead fallback → vendedor1 (${whatsappConfig.vendedor1.name})`);
     return 'vendedor1';
   },
   
@@ -73,6 +78,23 @@ const leadDistribution = {
       this.method = newMethod;
       console.log(`Método de distribuição alterado para: ${newMethod}`);
     }
+  },
+  
+  // Função para resetar o contador (útil para testes)
+  resetCounter() {
+    this.counter = 0;
+    console.log('Contador de distribuição resetado');
+  },
+  
+  // Função para obter estatísticas atuais
+  getStats() {
+    return {
+      method: this.method,
+      counter: this.counter,
+      nextVendor: this.counter % 2 === 1 ? 'vendedor2' : 'vendedor1',
+      vendedor1: whatsappConfig.vendedor1.name,
+      vendedor2: whatsappConfig.vendedor2.name
+    };
   }
 };
 
@@ -370,16 +392,32 @@ function getDistributionStats() {
 
 // Função para testar a distribuição (opcional - para debug)
 function testDistribution(count = 10) {
-  console.log(`Testando distribuição de ${count} leads:`);
+  console.log(`🧪 Testando distribuição de ${count} leads:`);
   const results = { vendedor1: 0, vendedor2: 0 };
+  const sequence = [];
   
   for (let i = 0; i < count; i++) {
     const vendor = leadDistribution.getNextVendor();
     results[vendor]++;
+    sequence.push(vendor);
   }
   
-  console.log('Resultados:', results);
+  console.log('📊 Resultados:', results);
+  console.log('🔄 Sequência:', sequence);
+  console.log('✅ Distribuição justa:', Math.abs(results.vendedor1 - results.vendedor2) <= 1);
   return results;
+}
+
+// Função para verificar o status atual da distribuição
+function checkDistributionStatus() {
+  const stats = leadDistribution.getStats();
+  console.log('📈 Status da Distribuição:');
+  console.log(`   Método: ${stats.method}`);
+  console.log(`   Contador: ${stats.counter}`);
+  console.log(`   Próximo vendedor: ${stats.nextVendor} (${stats[stats.nextVendor]})`);
+  console.log(`   Vendedor 1: ${stats.vendedor1}`);
+  console.log(`   Vendedor 2: ${stats.vendedor2}`);
+  return stats;
 }
 
 
@@ -692,7 +730,7 @@ function createCard(item) {
         <span>${item.local}</span>
       </div>
       <div class="card__actions">
-        <button class="button" onclick="openWhatsApp(${item.id})">💬 WhatsApp</button>
+        <button class="button" onclick="openWhatsApp(${item.id})"><img src="fotos/icons8-whatsapp-48.png" alt="WhatsApp" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;"> WhatsApp</button>
         <button class="btn-secondary" onclick="openPhotosModal(${item.id})">📸 Fotos</button>
         <button class="btn-secondary" onclick="openSimulationModal(${item.id})">💰 Simular</button>
       </div>
@@ -791,6 +829,18 @@ renderList(inventory);
 
 // Debug: verificar imagens (remover em produção)
 checkImages();
+
+// Funções de debug para distribuição (disponíveis no console)
+window.testDistribution = testDistribution;
+window.checkDistributionStatus = checkDistributionStatus;
+window.resetDistribution = () => leadDistribution.resetCounter();
+window.setDistributionMethod = (method) => leadDistribution.setMethod(method);
+
+// Log inicial do status
+console.log('🚀 Sistema de distribuição de leads inicializado!');
+console.log('💡 Use testDistribution(10) para testar a alternância');
+console.log('💡 Use checkDistributionStatus() para ver o status atual');
+console.log('💡 Use resetDistribution() para resetar o contador');
 
 
 // Sistema de fotos dos veículos
