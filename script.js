@@ -320,7 +320,7 @@ const inventory = [
     ]
   },
   {
-    id: 22.5,
+    id: 24,
     titulo: "Renault Sandero Stepway",
     preco: 39900,
     anoModelo: "2013/2013",
