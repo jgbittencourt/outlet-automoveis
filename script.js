@@ -303,21 +303,20 @@ const inventory = [
   },
   {
     id: 22,
-    titulo: "Honda CR-V LX 2.0 FLEX/GNV",
-    preco: 51900,
-    anoModelo: "2010/2010",
-    km: 150,
+    titulo: "Honda CG 125",
+    preco: 9900,
+    anoModelo: "2011/2011",
+    km: 100,
     local: "Barra Mansa, RJ",
     loja: "Outlet Automóveis",
-    imagem: "fotos/honda crv.jpeg",
+    imagem: "fotos/WhatsApp Image 2025-10-01 at 13.15.58.jpeg",
     imagens: [
-      "fotos/honda crv.jpeg",
-      "fotos/honda crv (2).jpeg",
-      "fotos/honda crv (3).jpeg",
-      "fotos/honda crv (4).jpeg",
-      "fotos/honda crv (5).jpeg",
-      "fotos/honda crv (6).jpeg",
-      "fotos/honda crv (7).jpeg"
+      "fotos/WhatsApp Image 2025-10-01 at 13.15.58.jpeg",
+      "fotos/WhatsApp Image 2025-10-01 at 13.15.59 (1).jpeg",
+      "fotos/WhatsApp Image 2025-10-01 at 13.15.59.jpeg",
+      "fotos/WhatsApp Image 2025-10-01 at 13.16.00 (1).jpeg",
+      "fotos/WhatsApp Image 2025-10-01 at 13.16.01 (1).jpeg",
+      "fotos/WhatsApp Image 2025-10-01 at 13.16.01.jpeg"
     ]
   },
   {
