@@ -320,6 +320,28 @@ const inventory = [
     ]
   },
   {
+    id: 22.5,
+    titulo: "Renault Sandero Stepway",
+    preco: 39900,
+    anoModelo: "2013/2013",
+    km: 120,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/renaulsandero (1).jpeg",
+    imagens: [
+      "fotos/renaulsandero (1).jpeg",
+      "fotos/renaulsandero (2).jpeg",
+      "fotos/renaulsandero (3).jpeg",
+      "fotos/renaulsandero (4).jpeg",
+      "fotos/renaulsandero (5).jpeg",
+      "fotos/renaulsandero (6).jpeg",
+      "fotos/renaulsandero (7).jpeg",
+      "fotos/renaulsandero (8).jpeg",
+      "fotos/renaulsandero (9).jpeg",
+      "fotos/renaulsandero (10).jpeg"
+    ]
+  },
+  {
     id: 23,
     titulo: "Chevrolet Onix LT 1.0 GNV",
     preco: 44900,
