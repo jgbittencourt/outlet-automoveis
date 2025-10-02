@@ -368,17 +368,18 @@ const inventory = [
     km: 115,
     local: "Barra Mansa, RJ",
     loja: "Outlet Automóveis",
-    imagem: "fotos/punto c (1).jpeg",
+    imagem: "fotos/punto Ver (1).jpeg",
     imagens: [
-      "fotos/punto c (1).jpeg",
-      "fotos/punto c (2).jpeg",
-      "fotos/punto c (3).jpeg",
-      "fotos/punto c (4).jpeg",
-      "fotos/punto c (5).jpeg",
-      "fotos/punto c (6).jpeg",
-      "fotos/punto c (7).jpeg",
-      "fotos/punto c (8).jpeg",
-      "fotos/punto c (9).jpeg"
+      "fotos/punto Ver (1).jpeg",
+      "fotos/punto Ver (2).jpeg",
+      "fotos/punto Ver (3).jpeg",
+      "fotos/punto Ver (4).jpeg",
+      "fotos/punto Ver (5).jpeg",
+      "fotos/punto Ver (6).jpeg",
+      "fotos/punto Ver (7).jpeg",
+      "fotos/punto Ver (8).jpeg",
+      "fotos/punto Ver (9).jpeg",
+      "fotos/punto Ver (10).jpeg"
     ]
   },
 ];
