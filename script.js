@@ -210,28 +210,6 @@ const inventory = [
       "fotos/siena(7).jpeg"
     ]
   },
-  {
-    id: 12,
-    titulo: "Honda City LX 1.5 Flex",
-    preco: 49900,
-    anoModelo: "2012/2012",
-    km: 171,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/WhatsApp Image 2025-09-15 at 17.51.55.jpeg",
-    imagens: [
-      "fotos/WhatsApp Image 2025-09-15 at 17.51.55.jpeg",
-      "fotos/city(1).jpg",
-      "fotos/city(2).jpg",
-      "fotos/city(3).jpg",
-      "fotos/city(4).jpg",
-      "fotos/city(5).jpg",
-      "fotos/city(6).jpg",
-      "fotos/city(7).jpg",
-      "fotos/city(8).jpg",
-      "fotos/city(9).jpg"
-    ]
-  },
   
   
   {
@@ -380,6 +358,49 @@ const inventory = [
       "fotos/punto Ver (8).jpeg",
       "fotos/punto Ver (9).jpeg",
       "fotos/punto Ver (10).jpeg"
+    ]
+  },
+  {
+    id: 26,
+    titulo: "Hyundai I30 2.0 16v",
+    preco: 41900,
+    anoModelo: "2011/2011",
+    km: 100,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/i (2).jpeg",
+    imagens: [
+      "fotos/i (1).jpeg",
+      "fotos/i (2).jpeg",
+      "fotos/i (3).jpeg",
+      "fotos/i (4).jpeg",
+      "fotos/i (5).jpeg",
+      "fotos/i (6).jpeg",
+      "fotos/i (7).jpeg",
+      "fotos/i (8).jpeg",
+      "fotos/i (9).jpeg"
+    ]
+  },
+  {
+    id: 27,
+    titulo: "Fiat Idea Elx 1.4 Fire Flex",
+    preco: 23900,
+    anoModelo: "2007/2007",
+    km: 100,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/idea (2).jpeg",
+    imagens: [
+      "fotos/idea (1).jpeg",
+      "fotos/idea (2).jpeg",
+      "fotos/idea (3).jpeg",
+      "fotos/idea (4).jpeg",
+      "fotos/idea (5).jpeg",
+      "fotos/idea (6).jpeg",
+      "fotos/idea (7).jpeg",
+      "fotos/idea (8).jpeg",
+      "fotos/idea (9).jpeg",
+      "fotos/idea (10).jpeg"
     ]
   },
 ];

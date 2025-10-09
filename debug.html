@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - Outlet Automóveis</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .debug-panel { background: white; padding: 20px; border-radius: 8px; margin: 10px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .status { padding: 10px; border-radius: 4px; margin: 5px 0; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .warning { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; border: none; border-radius: 4px; background: #007bff; color: white; }
+        button:hover { background: #0056b3; }
+        .console-output { background: #1e1e1e; color: #00ff00; padding: 15px; border-radius: 4px; font-family: monospace; max-height: 300px; overflow-y: auto; }
+        pre { margin: 0; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug - Outlet Automóveis</h1>
+    
+    <div class="debug-panel">
+        <h2>Status Geral</h2>
+        <div id="general-status">Verificando...</div>
+    </div>
+    
+    <div class="debug-panel">
+        <h2>Testes de Funcionalidade</h2>
+        <button onclick="runAllTests()">🧪 Executar Todos os Testes</button>
+        <button onclick="testWhatsApp()">📱 Testar WhatsApp</button>
+        <button onclick="testInventory()">🚗 Testar Inventário</button>
+        <button onclick="testFilters()">🔍 Testar Filtros</button>
+        <button onclick="clearConsole()">🗑️ Limpar Console</button>
+    </div>
+    
+    <div class="debug-panel">
+        <h2>Console de Debug</h2>
+        <div id="console-output" class="console-output">
+            <pre>Console de debug iniciado...\n</pre>
+        </div>
+    </div>
+    
+    <div class="debug-panel">
+        <h2>Informações do Sistema</h2>
+        <div id="system-info">Carregando...</div>
+    </div>
+
+    <script>
+        // Interceptar console.log para mostrar no painel
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        function addToConsole(message, type = 'log') {
+            const consoleOutput = document.getElementById('console-output');
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? '#ff6b6b' : type === 'warn' ? '#ffa726' : '#00ff00';
+            consoleOutput.innerHTML += `<pre style="color: ${color}">[${timestamp}] ${message}</pre>`;
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToConsole(args.join(' '), 'log');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToConsole('ERROR: ' + args.join(' '), 'error');
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            addToConsole('WARN: ' + args.join(' '), 'warn');
+        };
+        
+        function addStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('general-status');
+            const statusElement = document.createElement('div');
+            statusElement.className = `status ${type}`;
+            statusElement.textContent = message;
+            statusDiv.appendChild(statusElement);
+        }
+        
+        function clearConsole() {
+            document.getElementById('console-output').innerHTML = '<pre>Console limpo...\n</pre>';
+        }
+        
+        // Verificar status geral
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔍 Iniciando debug do sistema...');
+            
+            // Verificar se o script principal carregou
+            setTimeout(() => {
+                if (typeof inventory !== 'undefined') {
+                    addStatus('✅ JavaScript principal carregado', 'success');
+                    console.log(`📊 Inventário: ${inventory.length} veículos`);
+                } else {
+                    addStatus('❌ JavaScript principal não carregou', 'error');
+                    console.error('Script principal não encontrado');
+                }
+                
+                if (typeof whatsappConfig !== 'undefined') {
+                    addStatus('✅ Configuração WhatsApp carregada', 'success');
+                    console.log(`📱 WhatsApp: ${Object.keys(whatsappConfig).length} números configurados`);
+                } else {
+                    addStatus('❌ Configuração WhatsApp não carregada', 'error');
+                }
+                
+                if (typeof leadDistribution !== 'undefined') {
+                    addStatus('✅ Sistema de distribuição carregado', 'success');
+                    console.log(`🔄 Distribuição: método ${leadDistribution.method}`);
+                } else {
+                    addStatus('❌ Sistema de distribuição não carregado', 'error');
+                }
+                
+                // Informações do sistema
+                const systemInfo = document.getElementById('system-info');
+                systemInfo.innerHTML = `
+                    <div class="status info">
+                        <strong>User Agent:</strong> ${navigator.userAgent}<br>
+                        <strong>URL:</strong> ${window.location.href}<br>
+                        <strong>Timestamp:</strong> ${new Date().toLocaleString()}
+                    </div>
+                `;
+                
+            }, 1000);
+        });
+        
+        function runAllTests() {
+            console.log('🧪 Executando todos os testes...');
+            testWhatsApp();
+            testInventory();
+            testFilters();
+        }
+        
+        function testWhatsApp() {
+            console.log('📱 Testando configuração WhatsApp...');
+            try {
+                if (typeof whatsappConfig === 'undefined') {
+                    throw new Error('whatsappConfig não definido');
+                }
+                
+                const vendors = Object.keys(whatsappConfig);
+                console.log(`📱 Vendedores configurados: ${vendors.join(', ')}`);
+                
+                // Testar função de distribuição
+                if (typeof leadDistribution !== 'undefined') {
+                    const nextVendor = leadDistribution.getNextVendor();
+                    console.log(`🔄 Próximo vendedor: ${nextVendor}`);
+                }
+                
+                console.log('✅ Teste WhatsApp concluído com sucesso');
+            } catch (error) {
+                console.error(`❌ Erro no teste WhatsApp: ${error.message}`);
+            }
+        }
+        
+        function testInventory() {
+            console.log('🚗 Testando inventário...');
+            try {
+                if (typeof inventory === 'undefined') {
+                    throw new Error('inventory não definido');
+                }
+                
+                console.log(`📊 Total de veículos: ${inventory.length}`);
+                
+                // Verificar alguns veículos
+                inventory.slice(0, 3).forEach((vehicle, index) => {
+                    console.log(`🚗 Veículo ${index + 1}: ${vehicle.titulo} - ${vehicle.preco ? 'R$ ' + vehicle.preco.toLocaleString() : 'Preço não definido'}`);
+                });
+                
+                // Verificar se as imagens existem
+                const vehiclesWithImages = inventory.filter(v => v.imagem);
+                console.log(`📸 Veículos com imagem: ${vehiclesWithImages.length}/${inventory.length}`);
+                
+                console.log('✅ Teste inventário concluído com sucesso');
+            } catch (error) {
+                console.error(`❌ Erro no teste inventário: ${error.message}`);
+            }
+        }
+        
+        function testFilters() {
+            console.log('🔍 Testando sistema de filtros...');
+            try {
+                if (typeof applyFilters === 'undefined') {
+                    throw new Error('applyFilters não definido');
+                }
+                
+                if (typeof formatPrice === 'undefined') {
+                    throw new Error('formatPrice não definido');
+                }
+                
+                if (typeof formatKm === 'undefined') {
+                    throw new Error('formatKm não definido');
+                }
+                
+                // Testar formatação
+                const testPrice = formatPrice(50000);
+                const testKm = formatKm(100000);
+                console.log(`💰 Formatação preço: ${testPrice}`);
+                console.log(`🛣️ Formatação km: ${testKm}`);
+                
+                console.log('✅ Teste filtros concluído com sucesso');
+            } catch (error) {
+                console.error(`❌ Erro no teste filtros: ${error.message}`);
+            }
+        }
+    </script>
+    
+    <!-- Carregar o script principal -->
+    <script src="script.js"></script>
+</body>
+</html>

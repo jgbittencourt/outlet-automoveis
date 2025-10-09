@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Outlet Automóveis</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        button { padding: 10px 15px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste do Site Outlet Automóveis</h1>
+    
+    <div class="test-section">
+        <h2>1. Teste de Carregamento do JavaScript</h2>
+        <div id="js-test">Carregando...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Teste de Inventário</h2>
+        <div id="inventory-test">Verificando...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Teste de Configuração WhatsApp</h2>
+        <div id="whatsapp-test">Verificando...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Teste de Distribuição de Leads</h2>
+        <button onclick="testLeadDistribution()">Testar Distribuição</button>
+        <div id="distribution-test">Clique no botão para testar</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>5. Teste de Filtros</h2>
+        <button onclick="testFilters()">Testar Filtros</button>
+        <div id="filters-test">Clique no botão para testar</div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Teste 1: Verificar se o JavaScript carregou
+        document.addEventListener('DOMContentLoaded', function() {
+            const jsTest = document.getElementById('js-test');
+            if (typeof inventory !== 'undefined') {
+                jsTest.innerHTML = '✅ JavaScript carregado com sucesso!';
+                jsTest.parentElement.className = 'test-section success';
+            } else {
+                jsTest.innerHTML = '❌ Erro ao carregar JavaScript';
+                jsTest.parentElement.className = 'test-section error';
+            }
+            
+            // Teste 2: Verificar inventário
+            const inventoryTest = document.getElementById('inventory-test');
+            if (typeof inventory !== 'undefined' && inventory.length > 0) {
+                inventoryTest.innerHTML = `✅ Inventário carregado: ${inventory.length} veículos encontrados`;
+                inventoryTest.parentElement.className = 'test-section success';
+            } else {
+                inventoryTest.innerHTML = '❌ Erro no inventário';
+                inventoryTest.parentElement.className = 'test-section error';
+            }
+            
+            // Teste 3: Verificar configuração WhatsApp
+            const whatsappTest = document.getElementById('whatsapp-test');
+            if (typeof whatsappConfig !== 'undefined') {
+                const vendors = Object.keys(whatsappConfig).length;
+                whatsappTest.innerHTML = `✅ Configuração WhatsApp: ${vendors} números configurados`;
+                whatsappTest.parentElement.className = 'test-section success';
+            } else {
+                whatsappTest.innerHTML = '❌ Erro na configuração WhatsApp';
+                whatsappTest.parentElement.className = 'test-section error';
+            }
+        });
+        
+        function testLeadDistribution() {
+            const distributionTest = document.getElementById('distribution-test');
+            try {
+                if (typeof leadDistribution !== 'undefined') {
+                    const stats = leadDistribution.getStats();
+                    distributionTest.innerHTML = `
+                        ✅ Sistema de distribuição funcionando!<br>
+                        Método: ${stats.method}<br>
+                        Contador: ${stats.counter}<br>
+                        Vendedor 1: ${stats.vendedor1}<br>
+                        Vendedor 2: ${stats.vendedor2}
+                    `;
+                    distributionTest.parentElement.className = 'test-section success';
+                } else {
+                    throw new Error('leadDistribution não encontrado');
+                }
+            } catch (error) {
+                distributionTest.innerHTML = `❌ Erro: ${error.message}`;
+                distributionTest.parentElement.className = 'test-section error';
+            }
+        }
+        
+        function testFilters() {
+            const filtersTest = document.getElementById('filters-test');
+            try {
+                if (typeof applyFilters !== 'undefined') {
+                    filtersTest.innerHTML = '✅ Função de filtros disponível!';
+                    filtersTest.parentElement.className = 'test-section success';
+                } else {
+                    throw new Error('applyFilters não encontrado');
+                }
+            } catch (error) {
+                filtersTest.innerHTML = `❌ Erro: ${error.message}`;
+                filtersTest.parentElement.className = 'test-section error';
+            }
+        }
+    </script>
+</body>
+</html>
