@@ -430,7 +430,7 @@ const inventory = [
   {
     id: 29,
     titulo: "Volkswagen Voyage 1.0 Flex",
-    preco: 27900,
+    preco: 30900,
     anoModelo: "2012/2012",
     km: 118,
     local: "Barra Mansa, RJ",
