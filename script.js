@@ -406,7 +406,7 @@ const inventory = [
   {
     id: 28,
     titulo: "Ford Ka 1.0 Flex",
-    preco: 32900,
+    preco: 22900,
     anoModelo: "2012/2012",
     km: 125,
     local: "Barra Mansa, RJ",
