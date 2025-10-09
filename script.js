@@ -427,6 +427,27 @@ const inventory = [
       "fotos/ford ka (12).jpeg"
     ]
   },
+  {
+    id: 29,
+    titulo: "Volkswagen Voyage 1.0 Flex",
+    preco: 27900,
+    anoModelo: "2012/2012",
+    km: 118,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/voyage 12 (4).jpeg",
+    imagens: [
+      "fotos/voyage 12 (1).jpeg",
+      "fotos/voyage 12 (2).jpeg",
+      "fotos/voyage 12 (3).jpeg",
+      "fotos/voyage 12 (4).jpeg",
+      "fotos/voyage 12 (5).jpeg",
+      "fotos/voyage 12 (6).jpeg",
+      "fotos/voyage 12 (7).jpeg",
+      "fotos/voyage 12 (8).jpeg",
+      "fotos/voyage 12 (9).jpeg"
+    ]
+  },
 ];
 
 function formatPrice(value) {
