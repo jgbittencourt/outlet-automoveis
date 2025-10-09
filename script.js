@@ -448,6 +448,28 @@ const inventory = [
       "fotos/voyage 12 (9).jpeg"
     ]
   },
+  {
+    id: 30,
+    titulo: "Volkswagen Voyage Trendline 1.6 Flex",
+    preco: 45900,
+    anoModelo: "2018/2018",
+    km: 95,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/voyvoy 12 (1).jpeg",
+    imagens: [
+      "fotos/voyvoy 12 (1).jpeg",
+      "fotos/voyvoy 12 (2).jpeg",
+      "fotos/voyvoy 12 (3).jpeg",
+      "fotos/voyvoy 12 (4).jpeg",
+      "fotos/voyvoy 12 (5).jpeg",
+      "fotos/voyvoy 12 (6).jpeg",
+      "fotos/voyvoy 12 (7).jpeg",
+      "fotos/voyvoy 12 (8).jpeg",
+      "fotos/voyvoy 12 (9).jpeg",
+      "fotos/voyvoy 12 (10).jpeg"
+    ]
+  },
 ];
 
 function formatPrice(value) {
