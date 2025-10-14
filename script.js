@@ -148,27 +148,6 @@ const inventory = [
     ]
   },
   {
-    id: 7,
-    titulo: "Renault Duster 1.6 GNV",
-    preco: 47900,
-    anoModelo: "2013/2013",
-    km: 145,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/WhatsApp Image 2025-09-15 at 17.25.33.jpeg",
-    imagens: [
-      "fotos/WhatsApp Image 2025-09-15 at 17.25.33.jpeg",
-      "fotos/duster(1).jpg",
-      "fotos/duster(2).jpg",
-      "fotos/duster(3).jpg",
-      "fotos/duster(4).jpg",
-      "fotos/duster(5).jpg",
-      "fotos/duster(6).jpg",
-      "fotos/duster(7).jpg",
-      "fotos/dusterdento.jpg"
-    ]
-  },
-  {
     id: 8,
     titulo: "Volkswagen Gol 1.6 GNV",
     preco: 38900,
@@ -189,25 +168,6 @@ const inventory = [
       "fotos/gol(8).jpeg",
       "fotos/gol(9).jpeg",
       "fotos/gol(11).jpeg"
-    ]
-  },
-  {
-    id: 11,
-    titulo: "Fiat Siena ELX 1.4 Flex",
-    preco: 29900,
-    anoModelo: "2010/2010",
-    km: 138,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/siena (1).jpeg",
-    imagens: [
-      "fotos/siena (1).jpeg",
-      "fotos/siena(2).jpeg",
-      "fotos/siena(3).jpeg",
-      "fotos/siena(4).jpeg",
-      "fotos/siena(5).jpeg",
-      "fotos/siena(6).jpeg",
-      "fotos/siena(7).jpeg"
     ]
   },
   
@@ -233,28 +193,6 @@ const inventory = [
       "fotos/rangerrvoer1 (9).jpeg",
       "fotos/rangerrvoer1 (10).jpeg",
       "fotos/rangerrvoer1 (11).jpeg"
-    ]
-  },
-  {
-    id: 17,
-    titulo: "Fiat Punto Attractive Itália 1.4 GNV",
-    preco: 35900,
-    anoModelo: "2011/2011",
-    km: 140,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/WhatsApp Image 2025-09-15 at 17.51.58.jpeg",
-    imagens: [
-      "fotos/WhatsApp Image 2025-09-15 at 17.51.58.jpeg",
-      "fotos/punto c (1).jpeg",
-      "fotos/punto c (2).jpeg",
-      "fotos/punto c (3).jpeg",
-      "fotos/punto c (4).jpeg",
-      "fotos/punto c (5).jpeg",
-      "fotos/punto c (6).jpeg",
-      "fotos/punto c (7).jpeg",
-      "fotos/punto c (8).jpeg",
-      "fotos/punto c (9).jpeg"
     ]
   },
   {
@@ -320,47 +258,6 @@ const inventory = [
     ]
   },
   {
-    id: 23,
-    titulo: "Chevrolet Onix LT 1.0 GNV",
-    preco: 44900,
-    anoModelo: "2016/2016",
-    km: 158,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/onix p(4).jpeg",
-    imagens: [
-      "fotos/onix p(4).jpeg",
-      "fotos/onix p.jpeg",
-      "fotos/dentro onix.jpeg",
-      "fotos/onix p(2).jpeg",
-      "fotos/onix p(3).jpeg",
-      "fotos/onix p(5).jpeg",
-      "fotos/onix motor.jpeg"
-    ]
-  },
-  {
-    id: 25,
-    titulo: "Fiat Punto Attractive Itália 1.4 GNV",
-    preco: 35900,
-    anoModelo: "2014/2014",
-    km: 115,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/punto Ver (9).jpeg",
-    imagens: [
-      "fotos/punto Ver (1).jpeg",
-      "fotos/punto Ver (2).jpeg",
-      "fotos/punto Ver (3).jpeg",
-      "fotos/punto Ver (4).jpeg",
-      "fotos/punto Ver (5).jpeg",
-      "fotos/punto Ver (6).jpeg",
-      "fotos/punto Ver (7).jpeg",
-      "fotos/punto Ver (8).jpeg",
-      "fotos/punto Ver (9).jpeg",
-      "fotos/punto Ver (10).jpeg"
-    ]
-  },
-  {
     id: 26,
     titulo: "Hyundai I30 2.0 16v",
     preco: 41900,
@@ -383,6 +280,28 @@ const inventory = [
   },
   {
     id: 27,
+    titulo: "Fiat Punto Attractive Itália 1.4 GNV",
+    preco: 35900,
+    anoModelo: "2014/2014",
+    km: 115,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/punto Ver (9).jpeg",
+    imagens: [
+      "fotos/punto Ver (1).jpeg",
+      "fotos/punto Ver (2).jpeg",
+      "fotos/punto Ver (3).jpeg",
+      "fotos/punto Ver (4).jpeg",
+      "fotos/punto Ver (5).jpeg",
+      "fotos/punto Ver (6).jpeg",
+      "fotos/punto Ver (7).jpeg",
+      "fotos/punto Ver (8).jpeg",
+      "fotos/punto Ver (9).jpeg",
+      "fotos/punto Ver (10).jpeg"
+    ]
+  },
+  {
+    id: 28,
     titulo: "Fiat Idea Elx 1.4 Fire Flex",
     preco: 23900,
     anoModelo: "2007/2007",
@@ -404,7 +323,7 @@ const inventory = [
     ]
   },
   {
-    id: 28,
+    id: 29,
     titulo: "Ford Ka 1.0 Flex",
     preco: 22900,
     anoModelo: "2012/2012",
@@ -428,7 +347,7 @@ const inventory = [
     ]
   },
   {
-    id: 29,
+    id: 30,
     titulo: "Volkswagen Voyage 1.0 Flex",
     preco: 30900,
     anoModelo: "2012/2012",
@@ -449,7 +368,7 @@ const inventory = [
     ]
   },
   {
-    id: 30,
+    id: 31,
     titulo: "Volkswagen Voyage Trendline 1.6 Flex",
     preco: 45900,
     anoModelo: "2018/2018",
