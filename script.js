@@ -218,24 +218,6 @@ const inventory = [
     ]
   },
   {
-    id: 22,
-    titulo: "Honda CG 125",
-    preco: 9900,
-    anoModelo: "2011/2011",
-    km: 100,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/WhatsApp Image 2025-10-01 at 13.15.58.jpeg",
-    imagens: [
-      "fotos/WhatsApp Image 2025-10-01 at 13.15.58.jpeg",
-      "fotos/WhatsApp Image 2025-10-01 at 13.15.59 (1).jpeg",
-      "fotos/WhatsApp Image 2025-10-01 at 13.15.59.jpeg",
-      "fotos/WhatsApp Image 2025-10-01 at 13.16.00 (1).jpeg",
-      "fotos/WhatsApp Image 2025-10-01 at 13.16.01 (1).jpeg",
-      "fotos/WhatsApp Image 2025-10-01 at 13.16.01.jpeg"
-    ]
-  },
-  {
     id: 24,
     titulo: "Renault Sandero Stepway",
     preco: 39900,
