@@ -371,27 +371,6 @@ const inventory = [
       "fotos/voyvoy 12 (10).jpeg"
     ]
   },
-  {
-    id: 32,
-    titulo: "Ford Fiesta 1.6 Flex",
-    preco: 20900,
-    anoModelo: "2006/2006",
-    km: 180,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/fiesta (3).jpeg",
-    imagens: [
-      "fotos/fiesta (1).jpeg",
-      "fotos/fiesta (2).jpeg",
-      "fotos/fiesta (3).jpeg",
-      "fotos/fiesta (4).jpeg",
-      "fotos/fiesta (5).jpeg",
-      "fotos/fiesta (6).jpeg",
-      "fotos/fiesta (7).jpeg",
-      "fotos/fiesta (8).jpeg",
-      "fotos/fiesta (9).jpeg"
-    ]
-  },
 ];
 
 function formatPrice(value) {
