@@ -390,6 +390,27 @@ const inventory = [
       "fotos/WhatsApp Image 2025-10-15 at 17.12.16.jpeg"
     ]
   },
+  {
+    id: 33,
+    titulo: "Fiat Grand Siena Essence 1.6 16v GNV",
+    preco: 45000,
+    anoModelo: "2016/2016",
+    km: 100,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/g (9).jpeg",
+    imagens: [
+      "fotos/g (9).jpeg",
+      "fotos/g (1).jpeg",
+      "fotos/g (2).jpeg",
+      "fotos/g (3).jpeg",
+      "fotos/g (4).jpeg",
+      "fotos/g (5).jpeg",
+      "fotos/g (6).jpeg",
+      "fotos/g (7).jpeg",
+      "fotos/g (8).jpeg"
+    ]
+  },
 ];
 
 function formatPrice(value) {
