@@ -393,7 +393,7 @@ const inventory = [
   {
     id: 33,
     titulo: "Fiat Grand Siena Essence 1.6 16v GNV",
-    preco: 45000,
+    preco: 39900,
     anoModelo: "2016/2016",
     km: 100,
     local: "Barra Mansa, RJ",
