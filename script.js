@@ -397,7 +397,7 @@ const inventory = [
     titulo: "Yamaha NMAX 160 Flex 2022",
     preco: 19900,
     anoModelo: "2022/2022",
-    km: 15,
+    km: 100,
     local: "Barra Mansa, RJ",
     loja: "Outlet Automóveis",
     imagem: "fotos/moto b 1 (1).jpeg",
