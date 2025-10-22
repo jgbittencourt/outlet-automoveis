@@ -392,6 +392,19 @@ const inventory = [
       "fotos/g (8).jpeg"
     ]
   },
+  {
+    id: 34,
+    titulo: "Yamaha NMAX 160 Flex 2022",
+    preco: 19900,
+    anoModelo: "2022/2022",
+    km: 15,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/nmax.jpg",
+    imagens: [
+      "fotos/nmax.jpg"
+    ]
+  },
 ];
 
 function formatPrice(value) {
