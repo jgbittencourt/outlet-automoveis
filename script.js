@@ -400,9 +400,14 @@ const inventory = [
     km: 15,
     local: "Barra Mansa, RJ",
     loja: "Outlet Automóveis",
-    imagem: "fotos/nmax.jpg",
+    imagem: "fotos/moto b 1 (1).jpeg",
     imagens: [
-      "fotos/nmax.jpg"
+      "fotos/moto b 1 (1).jpeg",
+      "fotos/moto b 1 (2).jpeg",
+      "fotos/moto b 1 (3).jpeg",
+      "fotos/moto b 1 (4).jpeg",
+      "fotos/moto b 1 (5).jpeg",
+      "fotos/moto b 1 (6).jpeg"
     ]
   },
 ];
@@ -621,7 +626,7 @@ function showNotification(message, type = 'success') {
 
 // Sistema de Contadores
 function generateViewCount() {
-  return Math.floor(Math.random() * 200) + 50; // 50-250 visualizações
+  return Math.floor(Math.random() * 500) + 200; // 200-700 visualizações
 }
 
 
