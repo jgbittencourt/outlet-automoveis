@@ -372,25 +372,6 @@ const inventory = [
     ]
   },
   {
-    id: 32,
-    titulo: "Volkswagen Gol 1.6 AP 1995",
-    preco: 12900,
-    anoModelo: "1995/1995",
-    km: 180,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/WhatsApp Image 2025-10-15 at 17.12.17.jpeg",
-    imagens: [
-      "fotos/WhatsApp Image 2025-10-15 at 17.12.17.jpeg",
-      "fotos/WhatsApp Image 2025-10-15 at 17.12.14 (1).jpeg",
-      "fotos/WhatsApp Image 2025-10-15 at 17.12.15 (1).jpeg",
-      "fotos/WhatsApp Image 2025-10-15 at 17.12.15 (2).jpeg",
-      "fotos/WhatsApp Image 2025-10-15 at 17.12.15.jpeg",
-      "fotos/WhatsApp Image 2025-10-15 at 17.12.16 (2).jpeg",
-      "fotos/WhatsApp Image 2025-10-15 at 17.12.16.jpeg"
-    ]
-  },
-  {
     id: 33,
     titulo: "Fiat Grand Siena Essence 1.6 16v GNV",
     preco: 39900,
