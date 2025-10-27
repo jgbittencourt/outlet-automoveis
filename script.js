@@ -413,7 +413,7 @@ const inventory = [
   {
     id: 35,
     titulo: "Honda CG FAN 160 2023",
-    preco: 15900,
+    preco: 17900,
     anoModelo: "2023/2023",
     km: 100,
     local: "Barra Mansa, RJ",
@@ -427,6 +427,67 @@ const inventory = [
       "fotos/cb160 (5).jpeg",
       "fotos/cb160 (6).jpeg",
       "fotos/cb160 (7).jpeg"
+    ]
+  },
+  {
+    id: 36,
+    titulo: "Ford Ka 1.0 Flex 2018",
+    preco: 40900,
+    anoModelo: "2018/2018",
+    km: 100,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/ka branco (2).jpeg",
+    imagens: [
+      "fotos/ka branco (2).jpeg",
+      "fotos/ka branco (1).jpeg",
+      "fotos/ka branco (3).jpeg",
+      "fotos/ka branco (4).jpeg",
+      "fotos/ka branco (5).jpeg",
+      "fotos/ka branco (6).jpeg",
+      "fotos/ka branco (7).jpeg",
+      "fotos/ka branco (8).jpeg"
+    ]
+  },
+  {
+    id: 37,
+    titulo: "Renault Sandero EXP 1.0 Flex 2013",
+    preco: 30900,
+    anoModelo: "2013/2013",
+    km: 100,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/SANDERO EXP  1.0  FLEX 2013 (1).jpeg",
+    imagens: [
+      "fotos/SANDERO EXP  1.0  FLEX 2013 (1).jpeg",
+      "fotos/SANDERO EXP  1.0  FLEX 2013 (2).jpeg",
+      "fotos/SANDERO EXP  1.0  FLEX 2013 (3).jpeg",
+      "fotos/SANDERO EXP  1.0  FLEX 2013 (4).jpeg",
+      "fotos/SANDERO EXP  1.0  FLEX 2013 (5).jpeg",
+      "fotos/SANDERO EXP  1.0  FLEX 2013 (6).jpeg",
+      "fotos/SANDERO EXP  1.0  FLEX 2013 (7).jpeg",
+      "fotos/SANDERO EXP  1.0  FLEX 2013 (8).jpeg",
+      "fotos/SANDERO EXP  1.0  FLEX 2013 (9).jpeg"
+    ]
+  },
+  {
+    id: 38,
+    titulo: "Nissan Tiida S 1.8 GNV 2013",
+    preco: 34900,
+    anoModelo: "2013/2013",
+    km: 100,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/tiida (5).jpeg",
+    imagens: [
+      "fotos/tiida (5).jpeg",
+      "fotos/tiida (6).jpeg",
+      "fotos/tiida (7).jpeg",
+      "fotos/tiida (8).jpeg",
+      "fotos/tiida (4).jpeg",
+      "fotos/tiida (3).jpeg",
+      "fotos/tiida (2).jpeg",
+      "fotos/tiida (1).jpeg"
     ]
   },
 ];
