@@ -410,6 +410,25 @@ const inventory = [
       "fotos/moto b 1 (6).jpeg"
     ]
   },
+  {
+    id: 35,
+    titulo: "Honda CG FAN 160 2023",
+    preco: 15900,
+    anoModelo: "2023/2023",
+    km: 100,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/cb160 (1).jpeg",
+    imagens: [
+      "fotos/cb160 (1).jpeg",
+      "fotos/cb160 (2).jpeg",
+      "fotos/cb160 (3).jpeg",
+      "fotos/cb160 (4).jpeg",
+      "fotos/cb160 (5).jpeg",
+      "fotos/cb160 (6).jpeg",
+      "fotos/cb160 (7).jpeg"
+    ]
+  },
 ];
 
 function formatPrice(value) {
