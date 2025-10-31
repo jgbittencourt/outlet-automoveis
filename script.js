@@ -100,31 +100,6 @@ const leadDistribution = {
 
 const inventory = [
   {
-    id: 5,
-    titulo: "Onix Plus Joy 1.0 Flex",
-    preco: 54900,
-    anoModelo: "2020/2020",
-    km: 110,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/WhatsApp Image 2025-09-15 at 17.25.28.jpeg",
-    imagens: [
-      "fotos/WhatsApp Image 2025-09-15 at 17.25.28.jpeg",
-      "fotos/onix 2.2.jpeg",
-      "fotos/onix 2.5.jpeg",
-      "fotos/onix 2.6.jpeg",
-      "fotos/onix 2.7.jpeg",
-      "fotos/onix 2.8.jpeg",
-      "fotos/onix 2.9.jpeg",
-      "fotos/onix 20.jpeg",
-      "fotos/onix2.0.jpeg",
-      "fotos/onix2.1.jpeg",
-      "fotos/onix2.3.jpeg",
-      "fotos/onix2.4.jpeg",
-      "fotos/onix3.0.jpeg"
-    ]
-  },
-  {
     id: 6,
     titulo: "Peugeot 208 Active 1.5 GNV",
     preco: 36900,
@@ -283,28 +258,6 @@ const inventory = [
     ]
   },
   {
-    id: 28,
-    titulo: "Fiat Idea Elx 1.4 Fire Flex",
-    preco: 23900,
-    anoModelo: "2007/2007",
-    km: 100,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/idea (2).jpeg",
-    imagens: [
-      "fotos/idea (1).jpeg",
-      "fotos/idea (2).jpeg",
-      "fotos/idea (3).jpeg",
-      "fotos/idea (4).jpeg",
-      "fotos/idea (5).jpeg",
-      "fotos/idea (6).jpeg",
-      "fotos/idea (7).jpeg",
-      "fotos/idea (8).jpeg",
-      "fotos/idea (9).jpeg",
-      "fotos/idea (10).jpeg"
-    ]
-  },
-  {
     id: 29,
     titulo: "Ford Ka 1.0 Flex",
     preco: 22900,
@@ -369,27 +322,6 @@ const inventory = [
       "fotos/voyvoy 12 (8).jpeg",
       "fotos/voyvoy 12 (9).jpeg",
       "fotos/voyvoy 12 (10).jpeg"
-    ]
-  },
-  {
-    id: 33,
-    titulo: "Fiat Grand Siena Essence 1.6 16v GNV",
-    preco: 39900,
-    anoModelo: "2016/2016",
-    km: 100,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/g (9).jpeg",
-    imagens: [
-      "fotos/g (9).jpeg",
-      "fotos/g (1).jpeg",
-      "fotos/g (2).jpeg",
-      "fotos/g (3).jpeg",
-      "fotos/g (4).jpeg",
-      "fotos/g (5).jpeg",
-      "fotos/g (6).jpeg",
-      "fotos/g (7).jpeg",
-      "fotos/g (8).jpeg"
     ]
   },
   {
