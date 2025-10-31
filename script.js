@@ -422,6 +422,27 @@ const inventory = [
       "fotos/tiida (1).jpeg"
     ]
   },
+  {
+    id: 39,
+    titulo: "Honda Hornet 600 ABS 2010",
+    preco: 37900,
+    anoModelo: "2010/2010",
+    km: 50,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/hornet (1).jpeg",
+    imagens: [
+      "fotos/hornet (1).jpeg",
+      "fotos/hornet (2).jpeg",
+      "fotos/hornet (3).jpeg",
+      "fotos/hornet (4).jpeg",
+      "fotos/hornet (5).jpeg",
+      "fotos/hornet (6).jpeg",
+      "fotos/hornet (7).jpeg",
+      "fotos/hornet (8).jpeg",
+      "fotos/hornet (9).jpeg"
+    ]
+  },
 ];
 
 function formatPrice(value) {
