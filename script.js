@@ -258,30 +258,6 @@ const inventory = [
     ]
   },
   {
-    id: 29,
-    titulo: "Ford Ka 1.0 Flex",
-    preco: 22900,
-    anoModelo: "2012/2012",
-    km: 125,
-    local: "Barra Mansa, RJ",
-    loja: "Outlet Automóveis",
-    imagem: "fotos/ford ka (12).jpeg",
-    imagens: [
-      "fotos/ford ka (1).jpeg",
-      "fotos/ford ka (2).jpeg",
-      "fotos/ford ka (3).jpeg",
-      "fotos/ford ka (4).jpeg",
-      "fotos/ford ka (5).jpeg",
-      "fotos/ford ka (6).jpeg",
-      "fotos/ford ka (7).jpeg",
-      "fotos/ford ka (8).jpeg",
-      "fotos/ford ka (9).jpeg",
-      "fotos/ford ka (10).jpeg",
-      "fotos/ford ka (11).jpeg",
-      "fotos/ford ka (12).jpeg"
-    ]
-  },
-  {
     id: 30,
     titulo: "Volkswagen Voyage 1.0 Flex",
     preco: 30900,
