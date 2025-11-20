@@ -237,7 +237,7 @@ const inventory = [
   },
   {
     id: 27,
-    titulo: "Fiat Punto Attractive Itália 1.4 GNV",
+    titulo: "Fiat Punto Attractive Itália 1.4 Flex",
     preco: 35900,
     anoModelo: "2014/2014",
     km: 115,
@@ -417,6 +417,28 @@ const inventory = [
       "fotos/hornet (7).jpeg",
       "fotos/hornet (8).jpeg",
       "fotos/hornet (9).jpeg"
+    ]
+  },
+  {
+    id: 40,
+    titulo: "Renault Logan Expression 1.6 Flex 2014",
+    preco: 35900,
+    anoModelo: "2014/2014",
+    km: 100,
+    local: "Barra Mansa, RJ",
+    loja: "Outlet Automóveis",
+    imagem: "fotos/logan  (5).jpeg",
+    imagens: [
+      "fotos/logan  (1).jpeg",
+      "fotos/logan  (2).jpeg",
+      "fotos/logan  (3).jpeg",
+      "fotos/logan  (4).jpeg",
+      "fotos/logan  (5).jpeg",
+      "fotos/logan  (6).jpeg",
+      "fotos/logan  (7).jpeg",
+      "fotos/logan  (8).jpeg",
+      "fotos/logan  (9).jpeg",
+      "fotos/logan  (10).jpeg"
     ]
   },
 ];
